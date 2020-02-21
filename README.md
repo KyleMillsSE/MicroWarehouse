@@ -1,8 +1,8 @@
-"# MicroWarehouse" 
+"# MicroWarehouse"<br/>
 
 
-Requirements
+Requirements<br/>
 
-.NET Core 3.1
-Nginx
+.NET Core 3.1<br/>
+Nginx<br/>
 RabbitMQ
