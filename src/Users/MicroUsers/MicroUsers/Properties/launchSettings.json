@@ -1,0 +1,7 @@
+﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "MicroPicking": {
+    "commandName": "Project",
+    "launchUrl": "MicroUsers"
+  }
+}

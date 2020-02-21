@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBusRabbitMQ", "EventBusRabbitMQ\EventBusRabbitMQ.csproj", "{D194023A-9650-45D4-B789-4CB5A90E561D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D194023A-9650-45D4-B789-4CB5A90E561D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D194023A-9650-45D4-B789-4CB5A90E561D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D194023A-9650-45D4-B789-4CB5A90E561D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D194023A-9650-45D4-B789-4CB5A90E561D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {819B181A-E436-418D-BA87-23A82E8783AD}
+	EndGlobalSection
+EndGlobal
