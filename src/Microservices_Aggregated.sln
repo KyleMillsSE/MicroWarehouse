@@ -19,6 +19,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventBus", "EventBus", "{37
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBusRabbitMQ", "EventBus\EventBusRabbitMQ\EventBusRabbitMQ\EventBusRabbitMQ.csproj", "{C4594A6C-DEDD-4F5D-A50C-D243A5F9AF8D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Loading", "Loading", "{5B65A000-048C-4E52-93C0-C44BD9A9E156}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroLoading", "Loading\MicroLoading\MicroLoading\MicroLoading.csproj", "{DB231AD2-8C43-4384-877B-3ADBA18BF983}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,10 @@ Global
 		{C4594A6C-DEDD-4F5D-A50C-D243A5F9AF8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4594A6C-DEDD-4F5D-A50C-D243A5F9AF8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4594A6C-DEDD-4F5D-A50C-D243A5F9AF8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB231AD2-8C43-4384-877B-3ADBA18BF983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB231AD2-8C43-4384-877B-3ADBA18BF983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB231AD2-8C43-4384-877B-3ADBA18BF983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB231AD2-8C43-4384-877B-3ADBA18BF983}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +58,7 @@ Global
 		{3B7A53DB-2F15-41D9-B0C2-32E00D55FE16} = {D824E15F-DBB7-4D72-8AA3-DF73990F5B28}
 		{9711B64F-7E31-458E-BFB3-1E128C0F67B5} = {642EA864-5F44-4262-B6F4-4E66F99B5B8F}
 		{C4594A6C-DEDD-4F5D-A50C-D243A5F9AF8D} = {37FA325C-82E5-43C7-BAD1-630E4989A944}
+		{DB231AD2-8C43-4384-877B-3ADBA18BF983} = {5B65A000-048C-4E52-93C0-C44BD9A9E156}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {683810F6-E4BD-4B77-9596-86E258AECD3D}
