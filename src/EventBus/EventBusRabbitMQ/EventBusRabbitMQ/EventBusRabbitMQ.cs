@@ -52,6 +52,9 @@ namespace EventBusRabbitMQ
                 {
                     _consumeChannel = Connection.CreateModel();
 
+                    // Declare exchange
+                    _consumeChannel.ExchangeDeclare(_brokerName, ExchangeType.Direct);
+
                     // Declare queue
                     _consumeChannel.QueueDeclare(_queueName, false, false, false, null);
                 }
