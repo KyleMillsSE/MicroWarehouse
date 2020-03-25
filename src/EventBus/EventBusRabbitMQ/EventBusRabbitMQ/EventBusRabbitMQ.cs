@@ -53,7 +53,7 @@ namespace EventBusRabbitMQ
                     _consumeChannel = Connection.CreateModel();
 
                     // Declare exchange
-                    _consumeChannel.ExchangeDeclare(_brokerName, _brokerType);
+                    _consumeChannel.ExchangeDeclare(_brokerName, ExchangeType.Direct);
 
                     // Declare queue
                     _consumeChannel.QueueDeclare(_queueName, false, false, false, null);
@@ -75,10 +75,9 @@ namespace EventBusRabbitMQ
             _logger = logger;
             _serviceProvider = serviceProvider;
 
-            _brokerName = "micro_deft_broker";
-            _brokerType = "direct";
+            _brokerName = "micro_deft_broker_v3";
             _hostName = "localhost";
-            _queueName = "micro_deft_queue";
+            _queueName = "micro_deft_queue_v3_" + Guid.NewGuid().ToString().Replace("-", "");
 
             _subscriptions = new Dictionary<string, (Type, Type)>();
             _consumingStarted = false;
@@ -125,7 +124,7 @@ namespace EventBusRabbitMQ
 
             using (var publishChannel = Connection.CreateModel())
             {
-                publishChannel.ExchangeDeclare(_brokerName, "direct");
+                publishChannel.ExchangeDeclare(_brokerName, ExchangeType.Direct);
 
                 var properties = publishChannel.CreateBasicProperties();
 
