@@ -73,6 +73,7 @@ namespace EventBusRabbitMQ
             _serviceProvider = serviceProvider;
 
             _brokerName = "micro_deft_broker_v3";
+            _brokerType = ExchangeType.Direct;
             _hostName = "localhost";
             _queueName = "micro_deft_queue_v3_" + Guid.NewGuid().ToString().Replace("-", "");
 
@@ -121,7 +122,7 @@ namespace EventBusRabbitMQ
 
             using (var publishChannel = Connection.CreateModel())
             {
-                publishChannel.ExchangeDeclare(_brokerName, ExchangeType.Direct);
+                publishChannel.ExchangeDeclare(_brokerName, _brokerType);
 
                 var properties = publishChannel.CreateBasicProperties();
 
