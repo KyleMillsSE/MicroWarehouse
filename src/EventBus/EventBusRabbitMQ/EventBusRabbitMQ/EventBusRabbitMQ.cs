@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
@@ -53,7 +53,7 @@ namespace EventBusRabbitMQ
                     _consumeChannel = Connection.CreateModel();
 
                     // Declare exchange
-                    _consumeChannel.ExchangeDeclare(_brokerName, ExchangeType.Direct);
+                    _consumeChannel.ExchangeDeclare(_brokerName, _brokerType);
 
                     // Declare queue
                     _consumeChannel.QueueDeclare(_queueName, false, false, false, null);
