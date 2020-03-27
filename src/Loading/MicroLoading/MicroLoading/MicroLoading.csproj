@@ -9,7 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\EventBus\EventBusRabbitMQ\EventBusRabbitMQ\EventBusRabbitMQ.csproj" />
+    <ProjectReference Include="..\..\..\EventBus\EventBusAWSSQS\EventBusAWSSQS.csproj" />
+    <ProjectReference Include="..\..\..\EventBus\EventBusRabbitMQ\EventBusRabbitMQ.csproj" />
   </ItemGroup>
 
 

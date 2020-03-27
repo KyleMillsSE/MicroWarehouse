@@ -1,4 +1,4 @@
-﻿namespace EventBusRabbitMQ
+﻿namespace EventBusCore
 {
     public interface IEventCallback
     {

@@ -1,4 +1,4 @@
-using EventBusRabbitMQ;
+using EventBusCore;
 using MicroPicking.DataAccess;
 using MicroPicking.DataAccess.Repositories;
 using MicroPicking.Integration;
@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace MicroPicking
 {
@@ -31,7 +32,17 @@ namespace MicroPicking
             services.AddScoped<IPalletRepository, InMemoryPalletRepository>();
 
             // Event bus
-            services.AddSingleton<IEventBus, EventBusRabbitMQ.EventBusRabbitMQ>();
+            switch (Configuration["EventBus"])
+            {
+                case "RabbitMQ":
+                    services.AddSingleton<IEventBus, EventBusRabbitMQ.EventBusRabbitMQ>();
+                    break;
+                case "AWSSQS":
+                    services.AddSingleton<IEventBus, EventBusAWSSQS.EventBusAWSSQS>();
+                    break;
+                default:
+                    throw new NotImplementedException("event bus does not exist");
+            }
 
             // Integration
             services.AddScoped<IPickingIntegrationService, PickingIntegrationService>();

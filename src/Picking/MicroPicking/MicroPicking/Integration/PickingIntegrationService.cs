@@ -1,4 +1,4 @@
-﻿using EventBusRabbitMQ;
+﻿using EventBusCore;
 using Microsoft.Extensions.Logging;
 
 namespace MicroPicking.Integration

@@ -1,4 +1,4 @@
-﻿using EventBusRabbitMQ;
+﻿using EventBusCore;
 using MicroUsers.Domain;
 
 namespace MicroUsers.Integration.Events

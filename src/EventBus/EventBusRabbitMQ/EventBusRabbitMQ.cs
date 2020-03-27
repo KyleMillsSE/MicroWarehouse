@@ -6,10 +6,11 @@ using RabbitMQ.Client.Events;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using EventBusCore;
 
 namespace EventBusRabbitMQ
 {
-    public class EventBusRabbitMQ : IEventBus, IDisposable
+    public sealed class EventBusRabbitMQ : IEventBus, IDisposable
     {
         // Dependencies
         private readonly ILogger<EventBusRabbitMQ> _logger;
@@ -139,22 +140,19 @@ namespace EventBusRabbitMQ
 
         private void Consumer_Received(object sender, BasicDeliverEventArgs eventArgs)
         {
-            var eventName = eventArgs.RoutingKey;
-            var encodedData = Encoding.UTF8.GetString(eventArgs.Body);
-
-            ExecuteCallBack(eventName, encodedData);
+            ExecuteCallBack(eventArgs.RoutingKey, Encoding.UTF8.GetString(eventArgs.Body));
 
             ConsumeChannel.BasicAck(eventArgs.DeliveryTag, false);
         }
 
-        private void ExecuteCallBack(string eventName, string encodedData)
+        private void ExecuteCallBack(string eventName, string decodedData)
         {
             // Check if event has been subscribed for if yes then execute callback
             if (_subscriptions.TryGetValue(eventName, out var subscription))
             {
                 using (var scope = _serviceProvider.CreateScope())
                 {
-                    var @event = (Event)JsonConvert.DeserializeObject(encodedData, subscription.EventType);
+                    var @event = (Event)JsonConvert.DeserializeObject(decodedData, subscription.EventType);
 
                     var callBack = (IEventCallback)scope.ServiceProvider.GetService(subscription.CallbackType);
 

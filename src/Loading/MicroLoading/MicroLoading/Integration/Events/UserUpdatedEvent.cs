@@ -1,4 +1,4 @@
-﻿using EventBusRabbitMQ;
+﻿using EventBusCore;
 using MicroLoading.Domain;
 
 namespace MicroLoading.Integration.Events

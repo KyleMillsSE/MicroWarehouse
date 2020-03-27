@@ -10,11 +10,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\EventBus\EventBusRabbitMQ\EventBusRabbitMQ\EventBusRabbitMQ.csproj" />
+    <Folder Include="Integration\Callbacks\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Integration\Callbacks\" />
+    <ProjectReference Include="..\..\..\EventBus\EventBusAWSSQS\EventBusAWSSQS.csproj" />
+    <ProjectReference Include="..\..\..\EventBus\EventBusRabbitMQ\EventBusRabbitMQ.csproj" />
   </ItemGroup>
 
 

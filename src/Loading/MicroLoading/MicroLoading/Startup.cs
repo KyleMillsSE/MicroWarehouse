@@ -1,20 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using EventBusRabbitMQ;
+using EventBusCore;
 using MicroLoading.DataAccess;
 using MicroLoading.Integration;
 using MicroLoading.Integration.Callbacks;
 using MicroLoading.Integration.Events;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using System;
 
 namespace MicroLoading
 {
@@ -37,7 +30,17 @@ namespace MicroLoading
             services.AddSingleton<InMemoryLoadingContext>();
 
             // Event bus
-            services.AddSingleton<IEventBus, EventBusRabbitMQ.EventBusRabbitMQ>();
+            switch (Configuration["EventBus"])
+            {
+                case "RabbitMQ":
+                    services.AddSingleton<IEventBus, EventBusRabbitMQ.EventBusRabbitMQ>();
+                    break;
+                case "AWSSQS":
+                    services.AddSingleton<IEventBus, EventBusAWSSQS.EventBusAWSSQS>();
+                    break;
+                default:
+                    throw new NotImplementedException("event bus does not exist");
+            }
 
             // Integration
             services.AddScoped<ILoadingIntegrationService, LoadingIntegrationService>();

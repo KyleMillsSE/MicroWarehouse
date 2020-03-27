@@ -1,4 +1,4 @@
-using EventBusRabbitMQ;
+using EventBusCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MicroUsers.DataAccess;
 using MicroUsers.DataAccess.Repositories;
 using MicroUsers.Integration;
+using System;
 
 namespace MicroUsers
 {
@@ -29,7 +30,17 @@ namespace MicroUsers
             services.AddScoped<IUserRepository, InMemoryUserRepository>();
 
             // Event bus
-            services.AddSingleton<IEventBus, EventBusRabbitMQ.EventBusRabbitMQ>();
+            switch (Configuration["EventBus"])
+            {
+                case "RabbitMQ":
+                    services.AddSingleton<IEventBus, EventBusRabbitMQ.EventBusRabbitMQ>();
+                    break;
+                case "AWSSQS":
+                    services.AddSingleton<IEventBus, EventBusAWSSQS.EventBusAWSSQS>();
+                    break;
+                default:
+                    throw new NotImplementedException("event bus does not exist");
+            }
 
             // Integration
             services.AddScoped<IUserIntegrationService, UserIntegrationService>();

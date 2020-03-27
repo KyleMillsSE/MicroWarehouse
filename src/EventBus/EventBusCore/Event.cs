@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace EventBusRabbitMQ
+namespace EventBusCore
 {
     public abstract class Event
     {

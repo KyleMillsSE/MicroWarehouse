@@ -1,4 +1,4 @@
-﻿using EventBusRabbitMQ;
+﻿using EventBusCore;
 using MicroLoading.DataAccess;
 using MicroLoading.Integration.Events;
 using Microsoft.Extensions.Logging;
